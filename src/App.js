@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import Title from "./components/Title";
+import Input from "./components/Input";
+import "./App.css";
+
+const copyright = "Created by baha";
 
 function App() {
+  const [title, setTitle] = useState("");
+  const handleonChange = (value) => {
+    setTitle(value);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title
+        title={title === "" ? "Meteo App" : title}
+        color="green"
+        isgreen={false}
+      />
+      <Input onChange={handleonChange} />
+      <div style={{ position: "absolute", bottom: "0", right: "10px" }}>
+        <Title title={copyright} color="green" isgreen={true} />
+      </div>
     </div>
   );
 }

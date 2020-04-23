@@ -6,6 +6,8 @@ const Input = ({ onChange }) => {
     <div>
       <input
         onChange={(e) => onChange(e.target.value)}
+        placeholder="City name"
+        className={classes.input}
         name="city"
         type="text"
       />
